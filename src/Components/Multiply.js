@@ -4,7 +4,7 @@ import { multiplyTwo } from '../Redux/Multiply.js/Action';
 
 function Multiply(props){
 	return (
-		<div className>
+		<div>
 			<h1>{props.val_two}</h1>
 			<h3>Click the button to multiply the above number by 2</h3>
 			<button onClick={props.multiplyTwo}>Multiply by 2</button>

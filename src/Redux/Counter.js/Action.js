@@ -19,3 +19,18 @@ export const incrementAsync=()=> {
 export const Decrement=()=>({
     type: ActionTypes.DECREASE_COUNT
 })
+
+export const userData=()=>{
+  
+  return dispatch=>{
+    console.log("user");
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res=>res.json())
+    .then(res => res.map(user => user.address.street))
+    .then(userNames => {console.log(userNames)
+      dispatch(Decrement())
+    })
+    .catch(err => console.log('Error:', err))
+
+  }
+}
