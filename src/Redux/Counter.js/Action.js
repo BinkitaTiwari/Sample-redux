@@ -24,9 +24,15 @@ export const userData=()=>{
   
   return dispatch=>{
     console.log("user");
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://dummyapi.io/data/api/user',{ headers: { 'app-id': '60642f0102904819dc16b926' } })
     .then(res=>res.json())
-    .then(res => res.map(user => user.address.street))
+    .then(res => {
+      console.log(typeof(res));
+     return res.data.map((user) => {
+        console.log(user.email);
+        return user;
+      })
+    })
     .then(userNames => {console.log(userNames)
       dispatch(Decrement())
     })
